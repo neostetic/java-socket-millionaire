@@ -43,6 +43,14 @@ public class Question {
     public Question() {
     }
 
+    public Question(long id, String uuid, String question, OptionEntity rightOption, List<OptionEntity> options) {
+        this.id = id;
+        this.uuid = uuid;
+        this.question = question;
+        this.rightOption = rightOption;
+        this.options = options;
+    }
+
     public long getId() {
         return id;
     }

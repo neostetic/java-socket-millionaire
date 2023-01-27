@@ -28,8 +28,8 @@ public class QuestionController {
     }
 
     @RequestMapping(path = "/question/{id}", method = RequestMethod.GET)
-    public Question getQuestionByUuid(@PathVariable String uuid) {
-        return this.questionService.getQuestionByUuid(uuid);
+    public Question getQuestionByUuid(@PathVariable String id) {
+        return this.questionService.getQuestionByUuid(id);
     }
 
 }

@@ -12,7 +12,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "question_id")
     private long id;
 
     @Column(name = "uuid")
@@ -25,8 +25,8 @@ public class Question {
     @JoinColumn(name = "right_option_ID")
     private OptionEntity rightOption;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "question")
-    private List<OptionEntity> options = new java.util.ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "question", cascade = CascadeType.ALL)
+    private List<OptionEntity> options;
 
     public OptionEntity getRightOption() {
         return rightOption;

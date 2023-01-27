@@ -11,9 +11,20 @@ public class OptionEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne
+    @Column(name = "value")
+    private String value;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
     private Question question;
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public Long getId() {
         return id;

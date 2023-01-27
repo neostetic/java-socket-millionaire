@@ -22,6 +22,8 @@ public class Question {
     private String question;
 
     // TODO udělat difficulty
+    @Column(name = "difficulty")
+    private int difficulty;
 
     @OneToOne
     @JoinColumn(name = "right_option_ID")
@@ -45,12 +47,21 @@ public class Question {
     public Question() {
     }
 
-    public Question(long id, String uuid, String question, OptionEntity rightOption, List<OptionEntity> options) {
+    public Question(long id, String uuid, String question, int difficulty, OptionEntity rightOption, List<OptionEntity> options) {
         this.id = id;
         this.uuid = uuid;
         this.question = question;
+        this.difficulty = difficulty;
         this.rightOption = rightOption;
         this.options = options;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
     public long getId() {

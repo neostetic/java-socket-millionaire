@@ -51,8 +51,14 @@ public class QuestionController {
         return this.questionService.getQuestionByUuid(id);
     }
 
-    // TODO nahodna question
-//    @RequestMapping(path = "/question/random", method = RequestMethod.GET)
-//    public Question get
+    @RequestMapping(path = "/question/random", method = RequestMethod.GET)
+    public QuestionDto getRandomQuestion() {
+        List<QuestionDto> list = convertToDto(questionService.getAll());
+        return list.get(getRandomNumber(0, list.size()));
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
 
 }

@@ -21,6 +21,8 @@ public class Question {
     @Column(name = "question")
     private String question;
 
+    // TODO udělat difficulty
+
     @OneToOne
     @JoinColumn(name = "right_option_ID")
     private OptionEntity rightOption;

@@ -32,6 +32,7 @@ public class QuestionController {
             QuestionDto questionDto = new QuestionDto();
             questionDto.setQuestion(question.getQuestion());
             questionDto.setOptions(new HashSet<>());
+            questionDto.setAnswer(question.getRightOption().getValue());
             for(OptionEntity optionEntity : question.getOptions()) {
                 questionDto.getOptions().add(optionEntity.getValue());
             }
@@ -49,5 +50,9 @@ public class QuestionController {
     public Question getQuestionByUuid(@PathVariable String id) {
         return this.questionService.getQuestionByUuid(id);
     }
+
+    // TODO nahodna question
+//    @RequestMapping(path = "/question/random", method = RequestMethod.GET)
+//    public Question get
 
 }

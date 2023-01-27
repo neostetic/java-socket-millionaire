@@ -41,12 +41,18 @@ public class SimpleQuestionService implements QuestionService {
                 .options(new LinkedList<>())
                 .build();
 
-        OptionEntity optionEntity = new OptionEntity();
-        questionDto.getOptions().forEach(optionEntity::setValue);
-        optionEntity.setQuestion(question);
-       // optionRepository.save(optionEntity);
+        for (String option : questionDto.getOptions()) {
+            OptionEntity optionEntity = new OptionEntity();
+            optionEntity.setValue(option);
+            optionEntity.setQuestion(question);
+            if(questionDto.getAnswer().compareTo(option) == 0) {
+                question.setRightOption(optionEntity);
+            }
 
-        question.getOptions().add(optionEntity);
+            question.getOptions().add(optionEntity);
+        }
+        // optionRepository.save(optionEntity);
+
 
         System.out.println(question.getId() + " : " + question.getUuid());
         this.questionRepository.save(question);

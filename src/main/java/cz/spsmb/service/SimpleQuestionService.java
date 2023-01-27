@@ -39,6 +39,7 @@ public class SimpleQuestionService implements QuestionService {
                 .uuid(UUID.randomUUID().toString())
                 .question(questionDto.getQuestion())
                 .options(new LinkedList<>())
+                // TODO difficulty
                 .build();
 
         for (String option : questionDto.getOptions()) {
@@ -54,7 +55,7 @@ public class SimpleQuestionService implements QuestionService {
         // optionRepository.save(optionEntity);
 
 
-        System.out.println(question.getId() + " : " + question.getUuid());
+        System.out.println(question.getQuestion() + " : " + question.getUuid());
         this.questionRepository.save(question);
     }
 
